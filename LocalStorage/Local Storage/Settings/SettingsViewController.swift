@@ -89,6 +89,7 @@ class SettingsViewController: UIViewController {
         self.showTipPurchaseDetail()
     }
     
+    @IBOutlet weak var privacyButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
     @IBAction func onRateAppButton(_ sender: UIButton) { self.rateApp() }
     @IBAction func onWebsiteButton(_ sender: UIButton) { self.openProductWebsite() }
@@ -102,7 +103,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         self.loadSettings()
         self.setFooterData()
-        
+        rateAppButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        privacyButton.titleLabel?.adjustsFontSizeToFitWidth = true
         InAppPurchaseService.shared.getProducts()
     }
 
@@ -177,6 +179,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var rateAppButton: UIButton!
     func rateApp() {
         os_log("rateApp", log: logSettings, type: .debug)
         
